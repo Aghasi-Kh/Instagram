@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/comments")
@@ -19,6 +20,11 @@ public class CommentController {
     @GetMapping
     public ResponseEntity getAll() {
         return ResponseEntity.ok(commentService.getAll());
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity getById(@PathVariable int id) {
+        Optional<Comment> optional = commentService.getById(id);
+        return ResponseEntity.of(optional);
     }
 
     @PostMapping(MediaType.APPLICATION_JSON_VALUE)

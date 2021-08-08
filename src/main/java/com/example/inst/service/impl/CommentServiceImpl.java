@@ -10,6 +10,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -54,6 +55,11 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<Comment> search(Comment sample) {
         return commentRepository.findAll(Example.of(sample));
+    }
+
+    @Override
+    public Optional<Comment> getById(int id) {
+        return commentRepository.findById(id);
     }
 
 

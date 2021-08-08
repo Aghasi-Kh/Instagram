@@ -6,6 +6,7 @@ import com.example.inst.model.Comment;
 import com.example.inst.model.exceptions.NotFoundException;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CommentService {
 
@@ -21,4 +22,5 @@ public interface CommentService {
 
     List<Comment> search(Comment sample);
 
+    Optional<Comment> getById(int id);
 }
